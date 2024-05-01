@@ -76,7 +76,7 @@ The model was trained in a cloud environment, specifically using Kaggle, with th
 
 ### Model training files:
 - For the lightweight model unfortunately I accidentally deleted the file so it's lost.
-- 
+- For the other one here: [training log](website/training_log_03.ipynb)
 
 ## Website
 
