@@ -37,8 +37,8 @@ The model was trained in a cloud environment, specifically using Kaggle, with th
 - `main/`: Main folder containing the project files.
   - `website/`: Subfolder for the website.
     - `model/`: Holds trained model files (.h5) and prediction code.
-      - [Model 1 Prediction Code](website/model/model1_prediction.py) (Add link to Model 1 prediction code)
-      - [Model 2 Prediction Code](website/model/model2_prediction.py) (Add link to Model 2 prediction code)
+      - [Model 1 Prediction Code](website/model/predict_m1.py) (Add link to Model 1 prediction code)
+      - [Model 2 Prediction Code](website/model/predict_m2.py) (Add link to Model 2 prediction code)
     - `static/`: Contains static files required for the website (e.g., images).
     - `templates/`: Holds HTML templates for web pages.
     - `app.py`: Flask application file.
