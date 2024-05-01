@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% block title %}Index page{% endblock %}
+
+{% block main %}
+<div>
+    <h1 class="text-center mt-5 mb-4 fade-in">Rice Disease Detection Project</h1>
+
+    <div id="overview" class="mb-5 fade-in">
+        <h2 class="section-title">Overview</h2>
+        <p class="section-content">The Rice Disease Detection Project aims to develop an automated system for the early detection of diseases in rice plants. By leveraging convolutional neural networks (CNNs) and machine learning algorithms, the system will assist farmers in identifying and managing rice diseases effectively, leading to improved crop yield and agricultural sustainability.</p>
+    </div>
+
+    <div id="cnn-models" class="mb-5 fade-in">
+        <h2 class="section-title">CNN Models</h2>
+        <p class="section-content">Two CNN models were developed for rice disease detection: a lightweight model with four classes and a more complex model with nine classes. The second model was trained using transfer learning technique, specifically DenseNet121 architecture, to achieve high accuracy and robustness in disease classification whilst the first light weight model was architectured from ground-up meaning no transfer learning was used.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <p class="section-content">Lightweight Model</p>
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='output.png') }}" alt="Lightweight Model Image" class="img-fluid rounded">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <p class="section-content">Transfer Model</p>
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='output1.png') }}" alt="Transfer Model Image" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="cnn-theory" class="mb-5 fade-in">
+        <h2 class="section-title">Theory about CNN</h2>
+        <p class="section-content">Convolutional neural networks (CNNs) are a class of deep learning models widely used in computer vision tasks, including image recognition and classification. CNNs consist of multiple layers, such as convolutional layers, pooling layers, and fully connected layers, which extract hierarchical features from input images and enable accurate disease classification.</p>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='imagenet.jpg') }}" alt="Transfer Model Image" class="img-fluid rounded mx-auto d-block">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="web-app" class="mb-5 fade-in">
+        <h2 class="section-title">End Product Web App</h2>
+        <p class="section-content">The project culminates in a web application implemented using Flask framework. The web app provides an intuitive user interface for uploading rice plant images, selecting CNN models for disease prediction, and viewing the predicted results in real-time. The web app is designed to be accessible and user-friendly for both farmers and agricultural professionals.</p>
+    </div>
+
+    <div id="user-login" class="mb-5 fade-in">
+        <h2 class="section-title">User Login</h2>
+        <p class="section-content">User authentication functionality is integrated into the web application, allowing users to create accounts, securely log in, and access personalized features. User login ensures data privacy and security, enabling personalized user experiences and facilitating user management for administrators.</p>
+    </div>
+
+    <div id="image-prediction" class="mb-5 fade-in">
+        <h2 class="section-title">Image Upload and Prediction</h2>
+        <p class="section-content">The web application enables users to upload images of rice plants and select CNN models for disease prediction. Upon uploading an image, the selected CNN model analyzes the image and predicts the presence of any diseases. The predicted results are displayed to the user, aiding in early disease detection and crop management.</p>
+    </div>
+
+    <div id="project-showcase" class="mb-5 fade-in">
+        <h2 class="section-title">Project Showcase</h2>
+        <p class="section-content">The project showcase section highlights additional features, achievements, and insights gained during the development and implementation of the rice disease detection system.</p>
+    </div>
+</div>
+
+<footer class="footer text-center">
+    <div class="container">
+        <p>Here's my github <a href="https://github.com/tshreeram">tshreeram</a>.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var sections = document.querySelectorAll('.fade-in');
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        sections.forEach(function(section) {
+            observer.observe(section);
+        });
+    });
+</script>
+{% endblock %}

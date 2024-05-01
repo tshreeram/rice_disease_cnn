@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    <h1 class="text-center mb-4">Disease Details</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Disease</th>
+                <th>Causes</th>
+                <th>Symptoms</th>
+                <th>Remedies</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for disease, info in disease_info.items() %}
+            <tr>
+                <td>{{ disease }}</td>
+                <td>{{ info.causes }}</td>
+                <td>{{ info.symptoms }}</td>
+                <td>{{ info.remedies }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class="text-center mt-4">For more details about diseases, visit this page:</p>
+    <p class="text-center"><a href="https://kisanvedika.bighaat.com/crop/major-diseases-of-paddy/" target="_blank">Click here</a></p>
+</div>
+{% endblock %}

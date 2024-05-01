@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                {% if error_message %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ error_message }}
+                    </div>
+                {% endif %}
+
+                <form id="register-form" action="/register" method="POST">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="text" class="form-control" id="username" name="username" value="{{ request.form.username if request.form.username else '' }}" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control" id="password" name="password" value="{{ request.form.password if request.form.password else '' }}" required>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="show-password" style="cursor: pointer;">Show</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmation">Confirm Password:</label>
+                        <input type="password" class="form-control" id="confirmation" name="confirmation" value="{{ request.form.confirmation if request.form.confirmation else '' }}" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Show/hide password functionality
+        const passwordField = document.getElementById('password');
+        const confirmationField = document.getElementById('confirmation');
+        const showPasswordButton = document.getElementById('show-password');
+
+        showPasswordButton.addEventListener('click', function() {
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                confirmationField.type = 'text';
+                showPasswordButton.textContent = 'Hide';
+            } else {
+                passwordField.type = 'password';
+                confirmationField.type = 'password';
+                showPasswordButton.textContent = 'Show';
+            }
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Predictions</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="image-input" class="form-label">Upload Image</label>
+            <input class="form-control" type="file" id="image-input" name="image" required>
+        </div>
+        <div class="mb-3">
+            <label for="model-select" class="form-label">Select Model</label>
+            <select class="form-select" id="model-select" name="model">
+                <option value="model1">Model 1(9 classes)</option>
+                <option value="model2">Model 2(4 classes)</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Predict</button>
+    </form>
+
+    {% if error %}
+        <div class="alert alert-danger mt-3">{{ error }}</div>
+    {% endif %}
+
+    {% if prediction %}
+        <h2>Predicted Disease: {{ prediction }}</h2>
+    {% endif %}
+
+    {% if image_path %}
+        <div class="mb-3">
+            <h3>Uploaded Image</h3>
+            <div class="container">
+                <img src="{{ url_for('static', filename='uploads/' + image_path) }}" alt="Uploaded Image" class="img-fluid resized-image">
+            </div>
+        </div>
+    {% endif %}
+
+    {% if causes_symptoms_remedies %}
+    <div class="mt-5">
+        <h2>Causes, Symptoms, and Remedies</h2>
+        <div id="disease-info">
+          <table class="table table-bordered" style="background-color: #fff;">
+            <thead>
+              <tr style="background-color: #007bff; color: #fff;">
+                <th scope="col">Category</th>
+                <th scope="col">Information</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background-color: #f2f2f2;">
+                <th scope="row">Causes</th>
+                <td class="text-content">{{ causes_symptoms_remedies.causes }}</td>
+              </tr>
+              <tr style="background-color: #fff;">
+                <th scope="row">Symptoms</th>
+                <td class="text-content">{{ causes_symptoms_remedies.symptoms }}</td>
+              </tr>
+              <tr style="background-color: #f2f2f2;">
+                <th scope="row">Remedies</th>
+                <td class="text-content">{{ causes_symptoms_remedies.remedies }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>  
+    {% endif %}
+    <div class="footer mt-5">
+        <p>For more details, visit <a href="https://kisanvedika.bighaat.com/crop/major-diseases-of-paddy/">rice diseases</a>.</p>
+    </div>
+{% endblock %}
