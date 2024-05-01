@@ -31,7 +31,7 @@ def predict_disease_m1(img_path):
     _ = model(dummy_input)
 
     # Load the saved model weights
-    model.load_weights(r"D:\code\projects\rice_disease_nn\website\model\my_model_transfer_new.keras")
+    model.load_weights(r"website\model\my_model_transfer_new.keras") #change the directory accordingly
 
     # Load and preprocess the image
     img = cv2.imread(img_path)
