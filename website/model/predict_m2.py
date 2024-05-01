@@ -11,7 +11,7 @@ def predict_disease_m2(img_path):
     sys.stdout.reconfigure(encoding='utf-8')
 
     # Load the saved model
-    saved_model_path =r'D:\code\projects\rice_disease_nn\website\model\rice_disease_model.h5'
+    saved_model_path =r'website\model\rice_disease_model.h5'
     model = tf.keras.models.load_model(saved_model_path)
 
     # Load and preprocess the image
