@@ -71,7 +71,8 @@ The model was trained in a cloud environment, specifically using Kaggle, with th
   - Offers higher accuracy and robustness, especially for a broader range of rice disease classes.
 
 ### Confusion Matrix:
-![Confusion Matrix](link-to-confusion-matrix-image)
+![Confusion Matrix](website/static/output.png)
+![Confusion Matrix](website/static/output1.png)
 
 ### Model training files:
 - For the lightweight model unfortunately I accidentally deleted the file so it's lost.
